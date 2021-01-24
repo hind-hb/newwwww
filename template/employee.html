@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{%block content%}
+    <div class="container">
+
+  <div class="row ">
+
+      <div class="col-sm-3 ">
+
+          <form  method="post">
+           {% csrf_token %}
+              {{myform.as_table}}
+            <input type="submit" value="Submit">
+           </form>
+
+
+      </div>
+
+
+
+
+      <div class="col-sm-6 ">
+      <table class="table table-sm">
+  <thead>
+    <tr>
+
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Department</th>
+       <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for obje in obj%}
+
+    <tr>
+
+      <td>{{obje.name}}</td>
+      <td>{{obje.address}}</td>
+      <td>{{obje.department}}</td>
+      <td>{{obje.date}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+          </div>
+    </div>
+  </div>
+    </div>
+{%endblock content%}
